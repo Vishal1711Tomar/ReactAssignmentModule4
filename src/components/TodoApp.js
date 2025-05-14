@@ -1,31 +1,21 @@
 import React, { useState } from 'react';
 
 function TodoApp() {
-  // State to store input value
-  const [task, setTask] = useState("");
 
-  // State to store list of tasks
+  const [task, setTask] = useState("");
   const [todoList, setTodoList] = useState([]);
 
-  // Handle input change
   const handleInputChange = (event) => {
     setTask(event.target.value);
   };
-
-  // Handle adding task to the list
   const handleAddTask = () => {
-    // Trim to avoid empty or space-only tasks
     const trimmedTask = task.trim();
-
     if (trimmedTask === "") {
       alert("Please enter a valid task.");
       return;
     }
-
-    // Add to the list
     setTodoList([...todoList, trimmedTask]);
 
-    // Clear input
     setTask("");
   };
 
